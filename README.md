@@ -1,6 +1,20 @@
 # Twitter-Diaries
 TwitterDiaries, a responsive web application for you to analyse your Twitter account, understand your sentiments over the years and recommend suggestions to improve your mental well-being.
 
+# Team
+Project done by:
+
+Liau Yi Kun Kershawn
+
+Lim Li Xuan Tammy
+
+Lim Yin Shan
+
+Ong Hong Yang
+
+Teo Wei Jun Shawn
+
+
 --------------------------------------------setup--------------------------------------------
 
 download node.js into your computer: https://nodejs.org/en/
