@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, maximum-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link href="/assets/img/mylogo2.png" rel="icon">
+
+  <title>TwitterDiaries</title>
+
+
+
+  <!-- Custom fonts for this template-->
+  <link href="/css/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="/css/sb-admin-2.css" rel="stylesheet">
+  <style>
+    .button2 {
+      background-color: white; 
+      color: black; 
+      border: 1px solid #4e73df;
+      border-radius: 5%;
+    }
+
+    .button2:hover {
+      background-color: #4e73df;
+      color: white;
+    }
+
+    .card:hover {
+      background-color:  #4e72df0e;
+    }
+
+    /* label {
+      
+    } */
+
+  </style>
+</head>
+<% if (user) { %>
+<% if (user.theme == "checked") { %>
+
+<body id="page-top" class="dark">
+  <% } else { %>
+
+  <body id="page-top">
+    <% } %>
+    <% } else { %>
+
+    <body id="page-top">
+      <% } %>
+      <%=anime[0] %>
+
+      <!-- Page Wrapper -->
+      <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark toggled">
+
+          <!-- Home Logo -->
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/main">
+            <div class="sidebar-brand-icon rotate-n-15">
+              <i class="fas fa">
+                <img src="../assets/img/mylogo3.png">
+              </i>
+            </div>
+            <div class="sidebar-brand-text mx-3">TwitterDiaries</div>
+          </a>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+
+          <!-- Heading -->
+          <div class="sidebar-heading">
+            Twitter Account Analytics
+          </div>
+
+          <!-- Home page -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/main">
+              <i class="fa fa-desktop"></i>
+              <span>Dashboard</span></a>
+          </li>
+
+          <!-- Divider -->
+          <!-- <hr class="sidebar-divider my-0"> -->
+
+          <!-- Full Timeline-->
+          <li class="nav-item active">
+            <a class="nav-link" href="/profile/timeline">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                <path fill-rule="evenodd" d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"/>
+                <circle cx="3.5" cy="5.5" r=".5"/>
+                <circle cx="3.5" cy="8" r=".5"/>
+                <circle cx="3.5" cy="10.5" r=".5"/>
+              </svg>
+              <span>Full Tweet Timeline</span></a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+
+          <!-- Heading -->
+          <div class="sidebar-heading">
+            Others
+          </div>
+
+          <!-- Profile page ++ Settings (can access via top right oso upon click on etc part in drop down)-->
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle mr-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+              </svg>
+              <span>Profile</span>
+            </a>
+          </li>
+
+          <!-- About Us page -->
+          <li class="nav-item">
+            <a class="nav-link" href="/app">
+              <i class="fas fa-fw fa-table"></i>
+              <span>About Us</span>
+            </a>
+          </li>
+
+
+          <!-- Login or Logout -->
+          <% if (user) { %>
+            <!-- inner join this file-->
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/logout">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-1 text-gray-400"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+            <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/twitter">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-1 text-gray-400"></i>
+                <span>Login</span>
+              </a>
+            </li>
+          <% } %>
+
+          <!-- can insert the toggle dark mode here -->
+
+
+          <hr class="sidebar-divider d-none d-md-block">
+
+          <!-- Sidebar Toggler (Sidebar) -->
+          <!-- <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+          </div> -->
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Main Content-->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+          <!-- Main Content -->
+          <div id="content">
+
+            <!-- Topbar -->
+            <% if (user && user.theme == "checked") { %>
+            <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow dark">
+            <% } else { %> 
+            <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow ">
+            <% } %>
+              <!-- Topbar Navbar -->
+              <ul class="navbar-nav ml-auto">
+
+                <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                <% if (user) { %>
+                <!-- Nav Item - User Information -->
+                <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                      <%= user.username %>
+                    </span>
+                    <img class="img-profile rounded-circle" src="<%= user.profileImage %>" alt="profileImage">
+
+                  </a>
+
+                  <!-- Dropdown - User Information -->
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="/profile">
+                      <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Profile
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/profile/timeline">
+                      <i class="fas fa-desktop fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Timeline
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/auth/logout">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Logout
+                    </a>
+                  </div>
+                  <% } %>
+                </li>
+
+              </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+
+              <!-- Content Row -->
+              <div class="row">
+
+
+                <!-- Welcome back card -->
+
+                <div class="col-xl-12 mb-4">
+
+                    <% if (user && user.theme == "checked") { %>
+                    <div class="card shadow mb-4 h-100 dark">
+                    <% } else { %>
+                    <div class="card shadow mb-4 h-100">
+                    <% } %>                    
+                    <div class="card-body h-100 d-flex flex-column justify-content-center py-5 py-xl-4">
+                      <div class="row align-items-center">
+                        <div class="col-xl">
+                          <div class="text-center px-4 mb-4 mb-xl-0">
+                            <h1 class="text-primary">
+                              <% if (user) { %>
+                              Welcome Back, <%= user.username %>
+                              <% } else if (msg == "true") { %>
+                              Logged out from TwitterDiaries
+                              <%  } else { %>
+                              Welcome to TwitterDiaries
+                              <% } %>
+                              !</h1>
+                            <% if (user && user.theme == "checked") { %>
+                            <p class="text-gray-300 mb-0">
+                            <% } else { %>
+                            <p class="text-gray-700 mb-0">
+                            <% } %>   
+                              It's time to retrace your steps with TwitterDiaries!
+                              Never forget your precious memories again~
+                              <% if (!user){ %> 
+                                <br>
+                                <a href="/auth/twitter">Log in with Twitter now!</a>
+                              <% } else { %>
+                                <br>
+                                <a href="/profile/timeline">Analyse your Timeline now!</a>
+                              <% } %>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Overall Sentiment  -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <% if (user && user.theme == "checked") { %>
+                  <div class="card border-left-warning shadow h-100 py-2 dark">
+                  <% } else { %>
+                  <div class="card border-left-warning shadow h-100 py-2">
+                  <% } %>
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Overall Sentiment</div>
+                          <% if (user && user.theme == "checked") { %>
+                          <div class="h5 mb-0 font-weight-bold text-gray-300">
+                          <% } else { %>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          <% } %>
+                            <!-- sentiment calculated from the database -->
+                            <% if (user && user.overallSentiment > 0) {%>
+                            <span> You feel </span>
+                            <%=Math.round(user.overallSentiment)%>% happy
+                            <% } else if (user && user.overallSentiment < 0) { %>
+                            <span> You feel </span>
+                            <%=Math.abs(Math.round(user.overallSentiment))%>% sad
+                            <% } else if (user && user.overallSentiment == 0 && user.getTimeline == 'true') { %>
+                            <span> You feel neutral </span>
+                            <% } else if (user) { %>
+                            <span><a href="/profile/timeline">Analyse your Timeline first!</a></span>
+                            <% } else { %>
+                            <span>-</span>
+                            <% } %>
+                          </div>
+                        </div>
+
+                        <% if (user && user.overallSentiment > 0) {%>
+                        <div class="col-auto">
+                          <i class="fas fa-laugh-wink fa-2x text-gray-300"></i>
+                        </div>
+                        <% } else if (user && user.overallSentiment < 0) { %>
+                        <div class="col-auto">
+                          <i class="fas fa-frown fa-2x text-gray-300"></i>
+                        </div>
+                        <% } else if (user && user.overallSentiment == 0) { %>
+                        <div class="col-auto">
+                          <i class="fas fa-meh fa-2x text-gray-300"></i>
+                        </div>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- Tweets from function (earliest date's year) -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <% if (user && user.theme == "checked") { %>
+                  <div class="card border-left-success shadow h-100 py-2 dark">
+                  <% } else { %>
+                  <div class="card border-left-success shadow h-100 py-2">
+                  <% } %>
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Tweets From</div>
+                          <% if (user && user.theme == "checked") { %>
+                          <div class="h5 mb-0 font-weight-bold text-gray-300">
+                          <% } else { %>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">
+                          <% } %>
+                            <% if (!user) { %>
+                              <p>-</p>
+                              <% } else if (typeof(tweet) != "undefined") { %>
+                            <%=tweet[0].analysis.year[0]%>
+                            <% } else { %>
+                              <p>-</p>
+                            <% } %>
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tweets till function (latest date's year) -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <% if (user && user.theme == "checked") { %>
+                      <div class="card border-left-info shadow h-100 py-2 dark">
+                      <% } else { %>
+                  <div class="card border-left-info shadow h-100 py-2">
+                      <% } %>
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tweets Till</div>
+                          <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                              <% if (user && user.theme == "checked") { %>
+                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-300">
+                              <% } else { %>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                              <% } %>
+                                <% if (!user) { %>
+                                  <p>-</p>
+                                <% } else if (typeof(tweet) != "undefined") { %>
+                                <%=tweet[0].analysis.year[1]%>
+                                <% } else { %>
+                                  <p>-</p>
+                                <% } %>
+                              </div>
+                            </div>
+                            <!-- <div class="col">
+                          <div class="progress progress-sm mr-2">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                        </div> -->
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id='test'>
+                  <% var number = 0;
+              if (user && user.overallSentiment <= 0) {
+              number = Math.abs(Math.round(user.overallSentiment));
+              }%>
+                </div>
+
+                <!-- Whether you need help lmao -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <% if (user && user.theme == "checked") { %>
+                  <div class="card border-left-danger shadow h-100 py-2 dark">
+                  <% } else { %>
+                  <div class="card border-left-danger shadow h-100 py-2">
+                  <% } %>
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Do you need a break</div>
+
+                          <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                              <% if (user && user.theme == "checked") { %>
+                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-300"><%= number %>%</div>
+                              <% } else { %>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%= number %>%</div>
+                              <% } %>
+                            </div>
+                            <div class="col">
+                              <div class="progress progress-sm mr-2">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: <%= number %>%"
+                                  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content Row -->
+
+              <div class="row">
+
+                <!-- Sentiment Timline Analysis Chart -->
+                <div class="col-xl-8 col-lg-7">
+                  <% if (user && user.theme == "checked") { %>
+                  <div class="card shadow mb-4 dark">
+                  <% } else { %>
+                  <div class="card shadow mb-4">
+                  <% } %>
+                    <!-- Sentiment Timline Analysis Header -->
+                    <% if (user && user.theme == "checked") { %>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between dark">
+                    <% } else {%>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <% } %>
+                      <h6 class="m-0 font-weight-bold text-primary">Sentiment Analysis Timeline</h6>
+                    </div>
+                    <!-- Sentiment Timline Analysis THE CHART!!! -->
+                    <% if (user){%>
+                    <div class="card-body" >
+                      <div class="chart-area" style="width: 100%; height: 100%">
+                        <canvas id="myAreaChart">
+                          <%=(user.monthSentiment)%>
+                        </canvas>
+                      </div>
+                    </div>
+                    <% } %>
+                  </div>
+                </div>
+
+                <!-- Tweet Analysis Pie Chart Section -->
+                <div class="col-xl-4 col-lg-5">
+                  <% if (user && user.theme == "checked") { %>
+                  <div class="card shadow mb-4 dark">
+                  <% } else { %>
+                  <div class="card shadow mb-4">
+                  <% } %>
+                    <!-- Card Header - Dropdown -->
+                    <% if (user && user.theme == "checked") { %>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between dark">
+                    <% } else { %>
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <% } %>
+                      <h6 class="m-0 font-weight-bold text-primary">Tweets Analysis</h6>
+                    </div>
+
+                    <!-- Tweet Analysis Card Body -->
+
+                    <% if (user){%>
+                    <div class="card-body">
+                      <% if (typeof(tweet) != "undefined") {%>
+                      <div class="chart-pie pt-4 pb-2">
+                        <canvas id="tweetsPieChart">
+                          <%= JSON.stringify(tweet[0].analysis.numOfEmotionAnalysis) %>
+                        </canvas>
+                      </div>
+
+                      <!-- Tweet Analysis Legend-->
+                      <div class="mt-4 text-center small">
+                        <% var emotionsObj = tweet[0].analysis.numOfEmotionAnalysis; 
+                        if ("Positive" in emotionsObj){ %>
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-success"></i> Positive
+                        </span>
+                        <% } 
+                        if ("Neutral" in emotionsObj){%>
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-secondary"></i> Neutral
+                        </span>
+                        <% } 
+                        if ("Negative" in emotionsObj){%>
+                        <span class="mr-2">
+                          <i class="fas fa-circle text-danger"></i> Negative
+                        </span>
+                        <% } %>
+                      </div>
+
+                      <% } else {%>
+                        <% if (user && user.theme == "checked") { %>
+                        <div class="h5 mb-0 font-weight-bold text-gray-300">
+                        <% } else { %>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <% } %>
+                        Come back here after visiting your Timeline :)
+                      </div>
+                      <% } %>
+                      </b>
+                    </div>
+                    <% } %>
+                  </div>
+                </div>
+                <!--End of Tweet Analysis Pie Chart Section-->
+              </div>
+
+              <!-- Content Row another row-->
+              <div class="row">
+
+                <!-- Content Column -->
+                <div class="col-lg-4 mb-4">
+
+                  <!-- anime recommendations -->
+                  <div class="card shadow mb-4">
+                    <% if (user && user.theme == "checked") { %>
+                    <div class="card-header py-3 dark">
+                    <% } else { %>
+                    <div class="card-header py-3">
+                    <% } %>
+                      <h6 class="m-0 font-weight-bold text-primary">Recommended Anime</h6>
+                    </div>
+
+
+                    <div class="card-body" style="padding: 0">
+
+                      <div id="animeRec" class="carousel slide" data-ride="carousel">
+                        <% if (user && user.theme == "checked") { %>
+                          <ol class="carousel-indicators">
+                        <% } else { %>
+                          <ol class="carousel-indicators light">
+                        <% } %>
+                              <% for (i = 0; i < animelist.length; i ++){ %>
+                                <% if (i == 0) { %>
+                                  <li data-target="#animeRec" data-slide-to="0" class="active"></li>
+                                <% } else { %>
+                                  <li data-target="#animeRec" data-slide-to="<%=i%>"></li>
+                              <% }} %>
+                          </ol>
+                          <div class="carousel-inner" ">
+                            <% for (i = 0; i < animelist.length; i ++){ %>
+                              <% if (i == 0) { %>
+                              <div class="carousel-item active">
+                                  <a href="<%=animelist[i].url%>" target="_blank"><img class="d-block w-50 h-50" src="<%=animelist[i].image%>" style="margin: auto;"></a>
+                                  <% if (user && user.theme == "checked") { %>
+                                    <div class="carousel-caption">
+                                  <% } else { %>
+                                    <div class="carousel-caption light">
+                                  <% } %>
+                                    <h4><%= animelist[i].title %></h5>
+                                  </div>
+                                </div>
+                              <% } else { %>
+                                <div class="carousel-item">
+                                  <a href="<%=animelist[i].url%>" target="_blank"><img class="d-block w-50 h-50" src="<%=animelist[i].image%>" style="margin: auto;"></a>
+                                  <% if (user && user.theme == "checked") { %>
+                                    <div class="carousel-caption">
+                                  <% } else { %>
+                                    <div class="carousel-caption light">
+                                  <% } %>
+                                    <h4><%= animelist[i].title %></h5>
+                                  </div>
+                                </div>
+                              <% }} %>
+                          </div>
+                          <a class="carousel-control-prev" href="#animeRec" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next" href="#animeRec" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <!-- Color System -->
+                
+
+                  <div class="row">
+            
+                    <% if (user && user.overallSentiment > 0) {%>
+                    <% for (genre in animedic) {%>
+
+                    <div class="col-sm-6 mb-4">
+                      <div class="card bg-primary text-white shadow text-center">
+                        <label style="cursor: pointer; margin: 0px;" class="button2" for="<%=genre %>"> 
+                          <div class="card-body">
+                            <form method="POST" action="/main">
+                              <%=genre %>
+                              <button style="display: none" name="genre" id ='<%=genre %>' type="submit" value="<%=animedic[genre]%>"></button>
+                            </form>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    
+                    <% }} else if (user && user.overallSentiment < 0 ) {%>
+                    <% for (genre in animedic) {%>
+                      <div class="col-sm-6 mb-4">
+                        <div class="card bg-primary text-white shadow text-center">
+                          <label style="cursor: pointer; margin: 0px;" class="button2" for="<%=genre %>">
+                            <div class="card-body">
+                              <form method="POST" action="/main">
+                                <%=genre %>
+                                <!-- <label style="cursor: pointer;"> <%=genre %> </label>  -->
+                                <button style="display: none" name="genre" id ='<%=genre %>' type="submit" value="<%=animedic[genre]%>"></button>
+                              </form>
+                            </div>
+                          </label>
+                        </div>
+                      </div>
+                    <% } }%>
+                    
+                  </div>
+
+                </div>
+
+
+                <!-- Most Popular Tweets Table-->
+                <div class="col-lg-8 mb-4">
+                  <div class="card shadow mb-4">
+                    <% if (user && user.theme == "checked") { %>
+                    <div class="card-header py-3 dark">
+                    <% } else { %>
+                    <div class="card-header py-3">
+                    <% } %>
+                      <h6 class="m-0 font-weight-bold text-primary">Most Popular Tweets</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive table-hover">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Number of Retweets</th>
+                              <th>Number of Favourites</th>
+                              <th>Tweet Content</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th>#1</th>
+                              <td>
+                                <!-- most popular tweets will be taken from the database for the Popular Tweets Table -->
+                                <!-- if user has not logged in then it will display empty -->
+                                <% if (user) { %>
+                                <%=user.topOneRT%>
+                                <% } %>
+                              </td>
+                              <td>
+
+                                <% if (user) { %>
+                                <%=user.topOneFav%>
+                                <% } %>
+                              </td>
+                              <td>
+
+                                <% if (user) { %>
+                                <%=user.topOneText%>
+                                <% } %>
+
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>#2</th>
+                              <td>
+
+                                <% if (user) { %>
+                                <%=user.topTwoRT%>
+                                <% } %>
+                              </td>
+                              <td>
+                                <% if (user) { %>
+                                <%=user.topTwoFav%>
+                                <% } %>
+
+                              </td>
+                              <td>
+
+                                <% if (user) { %>
+                                <%=user.topTwoText%>
+                                <% } %>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>#3</th>
+                              <td>
+
+                                <% if (user) { %>
+                                <%=user.topThreeRT%>
+                                <% } %>
+                              </td>
+                              <td>
+
+
+                                <% if (user) { %>
+                                <%=user.topThreeFav%>
+                                <% } %>
+                              </td>
+                              <td>
+
+                                <% if (user) { %>
+                                <%=user.topThreeText%>
+                                <% } %>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+          </div>
+          <!-- End of Main Content -->
+
+          <!-- Footer -->
+          <footer class="sticky-footer">
+            <div class="container my-auto">
+              <div class="copyright text-center my-auto">
+                <span>Copyright &copy; TwitterDiaries' TwitterDiaries</span>
+              </div>
+            </div>
+          </footer>
+          <!-- End of Footer -->
+        </div>
+
+        <!-- End of Content Wrapper -->
+
+      </div>
+      <!-- End of Page Wrapper -->
+
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+
+      <!-- Bootstrap core JavaScript-->
+      <script src="/css/vendor/jquery/jquery.min.js"></script>
+      <script src="/css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+      <!-- Core plugin JavaScript-->
+      <script src="/css/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+      <!-- Custom scripts for all pages-->
+      <script src="/js/sb-admin-2.min.js"></script>
+
+      <!-- Page level plugins -->
+      <script src="/css/vendor/chart.js/Chart.min.js"></script>
+
+      <!-- Page level custom scripts -->
+      <script src="/js/demo/chart-area-demo.js"></script>
+      <script src="/js/demo/chart-pie-demo.js"></script>
+
+    </body>
+
+</html>
