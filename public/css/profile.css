@@ -1,0 +1,78 @@
+* {
+	color: blue;
+	color: red;
+}
+
+body {
+	font-family: arial;
+	margin: 0;
+	background-color: #1da1f2;
+}
+nav {
+	background: #1da1f2;
+	padding: 20px 10px;
+	transition: 1000ms;
+}
+nav.dark {
+	background: #05649f;
+	padding: 20px 10px;
+}
+nav ul {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 0;
+}
+nav li {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+nav a {
+	color: #fff;
+	font-size: 18px;
+	background: rgba(255, 255, 255, 0.2);
+	text-decoration: none;
+	padding: 10px;
+	display: block;
+}
+main,
+header {
+	max-width: 960px;
+	margin: 30px auto;
+	padding: 0 10px;
+	color: #333;
+}
+main img {
+	width: 40px;
+	margin-right: 10px;
+	position: relative;
+	top: 12px;
+}
+main p {
+	display: inline-block;
+}
+.twitter-btn {
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	padding: 10px;
+	background: #1da1f2;
+}
+.theme-button {
+	border: none;
+	color: #fff;
+	font-size: 18px;
+	background: rgba(255, 255, 255, 0.2);
+	text-decoration: none;
+	padding: 10px;
+	display: block;
+}
+
+.transition-fade {
+	opacity: 1;
+	transition: 500ms;
+}
+
+html.is-animating .transition-fade {
+	opacity: 0;
+}

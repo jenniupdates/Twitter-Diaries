@@ -1,0 +1,4 @@
+.transition-fade {
+	transition: 0.4s;
+	opacity: 1;
+}

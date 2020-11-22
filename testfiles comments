@@ -1,0 +1,25 @@
+	<!-- <script>
+		var tweets = document.getElementsByClassName('tweets') 
+		for(tweet of tweets){
+			analysis(tweet.textContent);
+		}
+        //run text through a text sentiment API 
+        function analysis(tweet) {
+            var data = null;
+
+            var request = new XMLHttpRequest();
+            request.withCredentials = true;
+
+            request.addEventListener("readystatechange", function () {
+                if (this.readyState === this.DONE) {
+                    var data = JSON.parse(this.responseText);
+                    console.log(tweet)
+                    console.log(data)
+                }
+            });
+            request.open("GET", `https://aylien-text.p.rapidapi.com/sentiment?text=${tweet}&mode=tweet`);
+            request.setRequestHeader("x-rapidapi-host", "aylien-text.p.rapidapi.com");
+            request.setRequestHeader("x-rapidapi-key", "15e0057f3fmsh3009160a6e0e15ap1f03d3jsn7fd2dbea9dab");
+            request.send(data);
+        }
+	</script> -->
