@@ -46,6 +46,9 @@ feel free to post a new tweet and click the "full timeline" again, the new tweet
 click on logout to logout from our app (you will still be logged into twitter in your browser, to try a new account, go to https://twitter.com/home and logout)
 
 # Acknowledgments
-Twitter API
+Twitter API 
+
 Jikan API
+
 Sentiment Analysis API
+
